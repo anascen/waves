@@ -1,38 +1,57 @@
 {
-  "name": "waves",
-  "version": "0.0.1",
-  "description": "waves by ascen",
-  "main": "lib/index.js",
-  "type": "module",
-  "scripts": {
-    "test": "npm run build && xv lib",
-    "build": "del-cli lib && tsc",
-    "benchmark": "npm run build && node lib/benchmark.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anascen/waves.git"
-  },
-  "keywords": [
-    "fs",
-    "file",
-    "async",
-    "fast",
-    "benchmark",
-    "ascen"
-  ],
-  "author": "ascen",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/anascen/waves/issues"
-  },
-  "homepage": "https://github.com/anascen/waves#readme",
-  "devDependencies": {
-    "@sindresorhus/tsconfig": "^5.0.0",
-    "@types/node": "^20.8.7",
-    "del-cli": "^5.1.0",
-    "husky": "^8.0.3",
-    "typescript": "^5.2.2",
-    "xv": "^2.1.1"
-  }
+    "name": "@ascen/waves",
+    "version": "0.0.1",
+    "description": "waves is 1000 times faster than node:fs to reads and writes in files by ascen.",
+    "main": "lib/index.js",
+    "type": "module",
+    "types": "lib/index.d.ts",
+    "exports": "./lib/index.js",
+    "files": [
+        "lib/**/*"
+    ],
+    "scripts": {
+        "test": "npm run build && xv lib",
+        "prepare": "husky install",
+        "build": "del-cli lib && tsc",
+        "postversion": "git push && git push --tags && npm publish",
+        "prepublishOnly": "npm run build",
+        "benchmark": "npm run build && node lib/benchmark.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anascen/waves.git"
+    },
+    "keywords": [
+        "fs",
+        "file",
+        "async",
+        "fast",
+        "benchmark",
+        "waves",
+        "ascen"
+    ],
+    "author": "ascen",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/anascen/waves/issues"
+    },
+    "homepage": "https://github.com/anascen/waves#readme",
+    "devDependencies": {
+        "@sindresorhus/tsconfig": "^5.0.0",
+        "@types/node": "^20.8.7",
+        "del-cli": "^5.1.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.0.2",
+        "prettier": "3.0.3",
+        "typescript": "^5.2.2",
+        "xv": "^2.1.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    }
 }

@@ -1,3 +1,3 @@
 <h1>waves</h1>
 
-waves by ascen 
+waves by ascen
