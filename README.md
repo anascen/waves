@@ -32,17 +32,31 @@ Here are some examples of how you can use this package:
 
 ### **How to use:**
 
-```
-import WavesWriter from "@ascen/waves";
+-   Import WavesWriter
 
+```
+import { WavesWriter } from "@ascen/waves";
+```
+
+-   Create an instance with the filename
+
+```
 // Filename
 const filename = "example.txt";
 
 // Create an instance of WavesWriter
 const waves = new WavesWriter(filename);
+```
 
-// Write data in file
-waves.write("waves by ascen");
+-   Create and call function for write in the file
+
+```
+const writeInFile = async () => {
+  // Call write method
+  await waves.write("waves by ascen");
+}
+
+writeInFile();
 ```
 
 you are looking for a fast, reliable, and easy-to-use file I/O library for Node.js, then this package is the perfect choice for you.
