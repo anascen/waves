@@ -1,6 +1,6 @@
 {
     "name": "@ascen/waves",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "waves is 1000 times faster than node:fs to reads and writes in files by ascen.",
     "main": "lib/index.js",
     "type": "module",

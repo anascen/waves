@@ -95,12 +95,12 @@ export class WavesWriter {
         }
     }
 
-    constructor(filenamr: PathLike) {
+    constructor(filename: PathLike) {
         /*
          * Set file name
          */
-        this.#filename = filenamr;
-        this.#tempFilename = getTempFilePath(filenamr);
+        this.#filename = filename;
+        this.#tempFilename = getTempFilePath(filename);
     }
 
     async write(data: string): Promise<void> {
